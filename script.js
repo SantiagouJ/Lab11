@@ -1,4 +1,4 @@
-import { obtenerURLAPI } from './utils.js';
+import { obtenerPersonajes } from './utils.js';
 
 class Personaje {
     constructor(displayIcon, displayName, description, id) {
@@ -20,24 +20,23 @@ class Personaje {
     }
 }
 
-// function verInformacion(id) {
-//     window.location.href = `segunda_pagina.html?id=${id}`;
-// }
-
-async function obtenerPersonajes() {
-    // Obtener la URL de la API utilizando la función asincrónica
-    const apiUrl = await obtenerURLAPI();
-    
-    // Hacer la solicitud a la API utilizando la URL obtenida
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    const personajesContainer = document.getElementById('personajes-container');
-    
-    data.data.forEach(personaje => {
-        const { displayIcon, displayName, description, uuid } = personaje;
-        const card = new Personaje(displayIcon, displayName, description, uuid);
-        personajesContainer.innerHTML += card.render();
-    });
+function verInformacion(id) {
+    window.location.href = `segunda_pagina.html?id=${id}`;
 }
 
-obtenerPersonajes();
+async function mostrarPersonajes() {
+    try {
+        const data = await obtenerPersonajes();
+        const personajesContainer = document.getElementById('personajes-container');
+        
+        data.data.forEach(personaje => {
+            const { displayIcon, displayName, description, uuid } = personaje;
+            const card = new Personaje(displayIcon, displayName, description, uuid);
+            personajesContainer.innerHTML += card.render();
+        });
+    } catch (error) {
+        console.error('Error al mostrar los personajes:', error);
+    }
+}
+
+mostrarPersonajes();

@@ -1,11 +1,19 @@
-// Función asincrónica para obtener el enlace de la API de Valorant
-async function obtenerURLAPI() {
-    // En este ejemplo, simplemente devolvemos la URL directamente,
-    // pero podrías realizar cualquier lógica asincrónica aquí, como hacer una solicitud HTTP
-    // para obtener la URL desde algún servicio externo.
-    return 'https://valorant-api.com/v1/agents';
-}
+// Función asincrónica para obtener los datos de la API de Valorant
+// export const obtenerPersonajes = async () => {
+//     try {
+//         const response = await fetch('https://valorant-api.com/v1/agents');
+//         const data = await response.json();
+//         return data;
+//     } catch (error) {
+//         console.error('Error al obtener los datos de la API:', error);
+//         throw error;
+//     }
+// };
 
-// Exportar la función para que esté disponible para otros archivos
-export { obtenerURLAPI };
+export const obtenerPersonajes = async () => {
+    const response = await fetch('https://valorant-api.com/v1/agents');
+    const data = await response.json();
+    return data;
+};
+
 
