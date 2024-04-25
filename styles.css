@@ -1,0 +1,28 @@
+/* Estilos para las tarjetas de personajes */
+.personaje-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    display: inline-block;
+}
+
+.personaje-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Estilos para los detalles del personaje */
+.personaje-detalle {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 400px;
+    margin: 20px auto;
+}
+
+.personaje-detalle img {
+    width: 100%;
+    border-radius: 5px;
+}
