@@ -1,0 +1,8 @@
+.personaje-caja{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 1px solid;
+    width: 100px;
+    height: 100px;
+}
